@@ -1,5 +1,12 @@
 import { i18n, type Locale } from "@/i18n-config";
 
+// Usando fontes google
+import { Roboto } from 'next/font/google'
+
+const roboto = Roboto({
+  subsets: ['latin'],
+})
+
 export const metadata = {
   title: "i18n within app router - Vercel Examples",
   description: "How to do i18n in Next.js 15 within app router",
@@ -18,7 +25,7 @@ export default async function Root(props: {
   const { children } = props;
 
   return (
-    <html lang={params.lang}>
+    <html lang={params.lang} className={roboto.className}>
       <body>{children}</body>
     </html>
   );
